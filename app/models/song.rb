@@ -9,9 +9,4 @@ class Song < ActiveRecord::Base
     artist = Artist.find_or_create_by(name: name)
     self.artist = artist
   end
-
-  def self.sort_songs
-    preference = Preference.last
-    order(title: preference.song_sort_order)
-  end
 end
